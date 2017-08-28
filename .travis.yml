@@ -1,0 +1,20 @@
+language: python
+python:
+  - "3.5"
+  install:
+  - pip install selenium
+  - pip install sauceclient
+  - pip install gitpython
+# Added gitpython
+
+
+
+before_deploy:
+- mkdir /tmp/test
+- cd /tmp/test
+
+repo = Repo.clone_from(
+    'https://github.com/ole-vi/BeLL-Apps.git',
+    '/tmp/test/',
+    branch='inno'
+    )
